@@ -101,7 +101,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -120,15 +119,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# CACHES = {
+#         "default": {  
+#             "BACKEND": "django_redis.cache.RedisCache",
+#             "LOCATION": os.environ.get('CACHELOCATION'),
+#             "OPTIONS": {
+#                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         },
+#     }
+# }
+
 CACHES = {
-        "default": {  
-            "BACKEND": "django_redis.cache.RedisCache",
-            "LOCATION": os.environ.get('CACHELOCATION'),
-            "OPTIONS": {
-                "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
